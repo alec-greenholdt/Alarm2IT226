@@ -25,7 +25,6 @@ public class OneTimeActivity extends AppCompatActivity {
         this.context = this;
     }
 
-
     public void btnSetOnClicked(View view){
         EditText daysText = (EditText) findViewById(R.id.txtDays);
         EditText hoursText = (EditText) findViewById(R.id.txtHours);

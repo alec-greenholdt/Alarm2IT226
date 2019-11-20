@@ -82,4 +82,81 @@ public class OneTimeActivity extends AppCompatActivity {
         finish();
         disMessage();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    /**
+     * Displays a message at the bottom of the screen with data from the
+     * days, hours, and minutes textfields.
+     */
+    private void disMessage(){
+        String mes = getString(R.string.one_time_alarmMessageP1);
+        boolean hasDays = false;
+        boolean hasHours = false;
+        switch(days){
+            case 0:
+                break;
+            case 1:
+                hasDays = true;
+                mes += " "+days+" "+getString(R.string.one_time_alarmMessageOneDay);
+                break;
+            default:
+                hasDays = true;
+                mes += " "+days+" "+getString(R.string.one_time_alarmMessageDays);
+                break;
+        }
+        switch(hrs){
+            case 0:
+                break;
+            case 1:
+                hasHours = true;
+                if(hasDays && mins>0){
+                    mes += ", 1 "+getString(R.string.one_time_alarmMessageOneHour)+",";
+                }
+                else if(hasDays && mins==0){
+                    mes += " "+getString(R.string.one_time_alarmMessageAnd)+" 1 "+getString(R.string.one_time_alarmMessageOneHour);
+                }
+                else{
+                    mes += " 1 "+getString(R.string.one_time_alarmMessageOneHour);
+                }
+                break;
+            default:
+                hasHours = true;
+                if(hasDays && mins>0){
+                    mes += ", "+hrs+" "+getString(R.string.one_time_alarmMessageHours)+",";
+                }
+                else if(hasDays && mins==0){
+                    mes += " "+getString(R.string.one_time_alarmMessageAnd)+" "+hrs+" "+getString(R.string.one_time_alarmMessageHours);
+                }
+                else {
+                    mes += " "+hrs+" "+getString(R.string.one_time_alarmMessageHours);
+                }
+                break;
+        }
+        switch(mins){
+            case 0:
+                break;
+            case 1:
+                if(hasDays || hasHours){
+                    mes += " "+getString(R.string.one_time_alarmMessageAnd)+" 1 "+getString(R.string.one_time_alarmMessageOneMinute);
+                }
+                else {
+                    mes += " 1 "+getString(R.string.one_time_alarmMessageOneMinute);
+                }
+                break;
+            default:
+                if(hasDays || hasHours){
+                    mes += " "+getString(R.string.one_time_alarmMessageAnd)+" "+mins+" "+getString(R.string.one_time_alarmMessageMinutes);
+                }
+                else {
+                    mes += " " + mins + " " + getString(R.string.one_time_alarmMessageMinutes);
+                }
+                break;
+        }
+        mes += " "+getString(R.string.one_time_alarmMessageP2);
+        Toast.makeText(getApplicationContext(), mes, Toast.LENGTH_LONG).show();
+    }
 }
