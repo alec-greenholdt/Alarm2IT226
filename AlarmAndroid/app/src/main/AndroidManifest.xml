@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".alarm_page"></activity>
-        <activity android:name=".timer_page" />
+        <activity android:name=".MainTimer" />
         <activity android:name=".location_page" />
         <activity android:name=".OneTimeActivity" />
         <activity android:name=".MainActivity">
