@@ -13,8 +13,16 @@
         <activity android:name=".alarm_page"></activity>
         <activity android:name=".timer_page" />
         <activity android:name=".location_page" />
-        <activity android:name=".main" />
         <activity android:name=".activity_alarm_page" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
+
+
 
 </manifest>

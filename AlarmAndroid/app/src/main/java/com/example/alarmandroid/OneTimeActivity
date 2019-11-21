@@ -34,7 +34,7 @@ public class OneTimeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_alarm_page);
         alarmTimePicker = (TimePicker) findViewById(R.id.alarmTimePicker);
         alarmTextView = (TextView) findViewById(R.id.alarmText);
         ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
