@@ -25,7 +25,7 @@ public class MainTimer extends AppCompatActivity {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+            setContentView(R.layout.tab1_fragment);
 
             mTextViewCountDown = findViewById(R.id.text_view_countdown);
 
