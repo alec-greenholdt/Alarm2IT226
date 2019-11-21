@@ -6,4 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".main">
 
+    <Button
+        android:id="@+id/locationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="341dp" />
+
+    <Button
+        android:id="@+id/timerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Timer"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="185dp" />
+
+    <Button
+        android:id="@+id/alarmButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alarm"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="34dp" />
 </android.support.constraint.ConstraintLayout>

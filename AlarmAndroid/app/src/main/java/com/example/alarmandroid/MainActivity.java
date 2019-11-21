@@ -1,6 +1,6 @@
 package com.example.alarmandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,13 +12,13 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button b1=(Button)findViewById(R.id.AlarmButton);
+        Button b1=(Button)findViewById(R.id.alarmButton);
         Button b2=(Button)findViewById(R.id.timerButton);
         Button b3= (Button) findViewById(R.id.locationButton);
     }
 
     public void onClick(View v){
-        Intent alarm = new Intent(MainActivity.this, alarmPage.class);
+        Intent alarm = new Intent(MainActivity.this, alarm_page.class);
         startActivity(alarm);
 
     }
