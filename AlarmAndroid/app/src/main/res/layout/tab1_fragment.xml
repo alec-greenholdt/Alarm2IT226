@@ -35,4 +35,12 @@
         android:visibility="invisible"
         tools:visibility="visible" />
 
+    <EditText
+        android:id="@+id/timerTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Time in seconds" />
+
 </RelativeLayout>
