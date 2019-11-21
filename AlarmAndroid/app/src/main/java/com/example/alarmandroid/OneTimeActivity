@@ -1,162 +1,63 @@
 package com.example.alarmandroid;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-public class OneTimeActivity extends AppCompatActivity {
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.ToggleButton;
 
-    private int days, hrs, mins;
-    private String msg = "";
-    private String location = "";
-    private AlarmManager alarm_manager;
-    private PendingIntent pending_intent;
-    private Context context;
+import java.util.Calendar;
+
+public class OneTimeActivity extends Activity {
+
+    AlarmManager alarmManager;
+    private PendingIntent pendingIntent;
+    private TimePicker alarmTimePicker;
+    private static OneTimeActivity inst;
+    private TextView alarmTextView;
+
+    public static OneTimeActivity instance() {
+        return inst;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        inst = this;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one_time);
-        alarm_manager = (AlarmManager) getSystemService(ALARM_SERVICE);
-        this.context = this;
+        setContentView(R.layout.activity_main);
+        alarmTimePicker = (TimePicker) findViewById(R.id.alarmTimePicker);
+        alarmTextView = (TextView) findViewById(R.id.alarmText);
+        ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
+        alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
     }
 
-
-    public void btnSetOnClicked(View view){
-        EditText daysText = (EditText) findViewById(R.id.txtDays);
-        EditText hoursText = (EditText) findViewById(R.id.txtHours);
-        EditText minutesText = (EditText) findViewById(R.id.txtMinutes);
-        EditText messageText = (EditText) findViewById(R.id.txtMessage);
-        EditText locationText = (EditText) findViewById(R.id.txtLocation);
-        if(daysText.getText().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(), getString(R.string.one_time_daysEmpty), Toast.LENGTH_LONG).show();
-            return;
+    public void onToggleClicked(View view) {
+        if (((ToggleButton) view).isChecked()) {
+            Log.d("MyActivity", "Alarm On");
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
+            calendar.set(Calendar.MINUTE, alarmTimePicker.getCurrentMinute());
+            Intent myIntent = new Intent(OneTimeActivity.this, AlarmReceiver.class);
+            pendingIntent = PendingIntent.getBroadcast(OneTimeActivity.this, 0, myIntent, 0);
+            alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(), pendingIntent);
+        } else {
+            alarmManager.cancel(pendingIntent);
+            setAlarmText("");
+            Log.d("MyActivity", "Alarm Off");
         }
-        if(hoursText.getText().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(), getString(R.string.one_time_hrsEmpty), Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(minutesText.getText().toString().isEmpty()){
-            Toast.makeText(getApplicationContext(), getString(R.string.one_time_minEmpty), Toast.LENGTH_LONG).show();
-            return;
-        }
-        days = Integer.parseInt(daysText.getText().toString());
-        hrs = Integer.parseInt(hoursText.getText().toString());
-        mins = Integer.parseInt(minutesText.getText().toString());
-        if(days==0 && hrs==0 && mins==0){
-            Toast.makeText(getApplicationContext(), getString(R.string.one_time_minTime), Toast.LENGTH_LONG).show();
-            return;
-        }
-        int addHours = 0;
-        while(mins>59){
-            addHours++;
-            mins -= 60;
-        }
-        hrs += addHours;
-        int addDays = 0;
-        while(hrs>23){
-            addDays++;
-            hrs -= 24;
-        }
-        days += addDays;
-        msg = messageText.getText().toString();
-        location = locationText.getText().toString();
-        if(msg.isEmpty()){
-            msg = "Alarm triggered!";
-        }
-        int minuteMilli = mins * 60000;
-        int hourMilli = hrs * 3600000;
-        int dayMilli = days * 86400000;
-        int totMilli = minuteMilli+hourMilli+dayMilli;
-        Intent my_intent = new Intent(this, AlarmReceiver.class);
-        my_intent.putExtra("MESSAGE", msg);
-        my_intent.putExtra("LOCATION", location);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, my_intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        alarm_manager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime()+totMilli, pendingIntent);
-        finish();
-        disMessage();
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    /**
-     * Displays a message at the bottom of the screen with data from the
-     * days, hours, and minutes textfields.
-     */
-    private void disMessage(){
-        String mes = getString(R.string.one_time_alarmMessageP1);
-        boolean hasDays = false;
-        boolean hasHours = false;
-        switch(days){
-            case 0:
-                break;
-            case 1:
-                hasDays = true;
-                mes += " "+days+" "+getString(R.string.one_time_alarmMessageOneDay);
-                break;
-            default:
-                hasDays = true;
-                mes += " "+days+" "+getString(R.string.one_time_alarmMessageDays);
-                break;
-        }
-        switch(hrs){
-            case 0:
-                break;
-            case 1:
-                hasHours = true;
-                if(hasDays && mins>0){
-                    mes += ", 1 "+getString(R.string.one_time_alarmMessageOneHour)+",";
-                }
-                else if(hasDays && mins==0){
-                    mes += " "+getString(R.string.one_time_alarmMessageAnd)+" 1 "+getString(R.string.one_time_alarmMessageOneHour);
-                }
-                else{
-                    mes += " 1 "+getString(R.string.one_time_alarmMessageOneHour);
-                }
-                break;
-            default:
-                hasHours = true;
-                if(hasDays && mins>0){
-                    mes += ", "+hrs+" "+getString(R.string.one_time_alarmMessageHours)+",";
-                }
-                else if(hasDays && mins==0){
-                    mes += " "+getString(R.string.one_time_alarmMessageAnd)+" "+hrs+" "+getString(R.string.one_time_alarmMessageHours);
-                }
-                else {
-                    mes += " "+hrs+" "+getString(R.string.one_time_alarmMessageHours);
-                }
-                break;
-        }
-        switch(mins){
-            case 0:
-                break;
-            case 1:
-                if(hasDays || hasHours){
-                    mes += " "+getString(R.string.one_time_alarmMessageAnd)+" 1 "+getString(R.string.one_time_alarmMessageOneMinute);
-                }
-                else {
-                    mes += " 1 "+getString(R.string.one_time_alarmMessageOneMinute);
-                }
-                break;
-            default:
-                if(hasDays || hasHours){
-                    mes += " "+getString(R.string.one_time_alarmMessageAnd)+" "+mins+" "+getString(R.string.one_time_alarmMessageMinutes);
-                }
-                else {
-                    mes += " " + mins + " " + getString(R.string.one_time_alarmMessageMinutes);
-                }
-                break;
-        }
-        mes += " "+getString(R.string.one_time_alarmMessageP2);
-        Toast.makeText(getApplicationContext(), mes, Toast.LENGTH_LONG).show();
+    public void setAlarmText(String alarmText) {
+        alarmTextView.setText(alarmText);
     }
 }
