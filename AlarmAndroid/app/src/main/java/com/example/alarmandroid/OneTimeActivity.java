@@ -13,6 +13,8 @@ import android.widget.ToggleButton;
 
 import java.util.Calendar;
 
+//Newest class
+
 public class OneTimeActivity extends Activity {
 
     AlarmManager alarmManager;

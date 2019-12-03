@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".alarm_page"></activity>
-        <activity android:name=".timer_page" />
+        <activity android:name=".MainTimer" />
         <activity android:name=".location_page" />
-        <activity android:name=".activity_alarm_page" />
+        <activity android:name=".OneTimeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,6 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".AlarmService"
+            android:enabled="true" />
+        <receiver android:name=".AlarmReceiver" />
     </application>
 
 

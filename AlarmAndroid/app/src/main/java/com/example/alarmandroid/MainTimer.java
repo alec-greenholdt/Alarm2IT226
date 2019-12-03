@@ -1,18 +1,16 @@
 package com.example.alarmandroid;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.Locale;
 
 public class MainTimer extends AppCompatActivity {
-     EditText time = (EditText)findViewById(R.id.timerTime);
-       int num= Integer.parseInt(time.getText().toString());
-        private final long START_TIME_IN_MILLIS = num*1000;
+  
+        private final long START_TIME_IN_MILLIS = 600000;
 
         private TextView mTextViewCountDown;
         private Button mButtonStartPause;
@@ -54,6 +52,8 @@ public class MainTimer extends AppCompatActivity {
 
             updateCountDownText();
         }
+
+
 
         private void startTimer() {
             mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {

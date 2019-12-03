@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void timeClick(View v){
-        Intent timer = new Intent(MainActivity.this, timer_page.class);
+        Intent timer = new Intent(MainActivity.this, MainTimer.class);
         startActivity(timer);
     }
 
