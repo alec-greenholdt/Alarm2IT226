@@ -7,17 +7,20 @@
         android:id="@+id/timerButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="timeClick"
         android:text="Timer" />
 
     <Button
         android:id="@+id/locationButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="locationClick"
         android:text="Location ALarm" />
 
     <Button
         android:id="@+id/alarmButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClick"
         android:text="Alarm" />
 </LinearLayout>

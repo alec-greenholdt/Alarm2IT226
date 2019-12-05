@@ -4,6 +4,7 @@ package com.example.working;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.CountDownTimer;
 
 import android.os.Bundle;
@@ -39,8 +40,7 @@ public class TimerTime extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.timer);
 
 
         mTextViewCountDown = findViewById(R.id.text_view_countdown);
