@@ -26,7 +26,7 @@ public class LocationAlarm extends AppCompatActivity {
 
     private LocationManager locationManager;
     private LocationListener locationListener;
-    private Button timerBtn;
+    private Button timerButton;
     private Button submitButton;
     private EditText locationTime;
     private TextView startingcoords;
@@ -36,7 +36,7 @@ public class LocationAlarm extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_location_alarm);
 
         if (ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.ACCESS_FINE_LOCATION)){
@@ -106,8 +106,8 @@ public class LocationAlarm extends AppCompatActivity {
 
 
 
-        timerBtn = (Button) findViewById(R.id.timerBtn);
-        timerBtn.setOnClickListener(new View.OnClickListener() {
+        timerButton = (Button) findViewById(R.id.timerBtn2);
+        timerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {                               //time in milliseconds (1000*seconds)
                 locationManager.requestLocationUpdates("gps", 10000, 0, locationListener);
