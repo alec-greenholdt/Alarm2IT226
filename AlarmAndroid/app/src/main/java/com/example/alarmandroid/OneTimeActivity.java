@@ -22,6 +22,7 @@ public class OneTimeActivity extends Activity {
     private TimePicker alarmTimePicker;
     private static OneTimeActivity inst;
     private TextView alarmTextView;
+    ToggleButton alarmToggle = null;
 
     public static OneTimeActivity instance() {
         return inst;
@@ -39,12 +40,12 @@ public class OneTimeActivity extends Activity {
         setContentView(R.layout.activity_alarm_page);
         alarmTimePicker = (TimePicker) findViewById(R.id.alarmTimePicker);
         alarmTextView = (TextView) findViewById(R.id.alarmText);
-        ToggleButton alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
+        alarmToggle = (ToggleButton) findViewById(R.id.alarmToggle);
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
     }
 
     public void onToggleClicked(View view) {
-        if (((ToggleButton) view).isChecked()) {
+        if (alarmToggle.isChecked()) {
             Log.d("MyActivity", "Alarm On");
             Calendar calendar = Calendar.getInstance();
             calendar.set(Calendar.HOUR_OF_DAY, alarmTimePicker.getCurrentHour());
