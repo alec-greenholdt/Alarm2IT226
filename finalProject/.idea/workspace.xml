@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="25704f5c-91df-4a09-8300-e66672816aa7" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="368cc5e9-c159-43a9-913f-7f86e768b73c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../working/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../working/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../working/app/src/main/java/com/example/working/Alarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../working/app/src/main/java/com/example/working/Alarm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../working/app/src/main/java/com/example/working/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/../working/app/src/main/java/com/example/working/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../working/app/src/main/java/com/example/working/TimerTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/../working/app/src/main/java/com/example/working/TimerTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../working/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../working/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+>>>>>>> 4b9234fc64299c9b32ddccccf1025bc8ce4f9cf9
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
@@ -27,11 +41,35 @@
       <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane" />
+=======
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="3866" />
+    <option name="y" value="29" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+>>>>>>> 4b9234fc64299c9b32ddccccf1025bc8ce4f9cf9
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../working" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+>>>>>>> 4b9234fc64299c9b32ddccccf1025bc8ce4f9cf9
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -49,6 +87,7 @@
     <configuration />
   </component>
   <component name="TaskManager">
+<<<<<<< HEAD
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -129,5 +168,36 @@
         </settings>
       </state>
     </states>
+=======
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="368cc5e9-c159-43a9-913f-7f86e768b73c" name="Default Changelist" comment="" />
+      <created>1575504893629</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575504893629</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="3866" y="29" width="1936" height="1056" extended-state="1" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32982087" />
+      <window_info id="Structure" side_tool="true" />
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="Resources Explorer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Captures" order="0" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="TODO" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Palette&#9;" />
+    </layout>
+>>>>>>> 4b9234fc64299c9b32ddccccf1025bc8ce4f9cf9
   </component>
 </project>
