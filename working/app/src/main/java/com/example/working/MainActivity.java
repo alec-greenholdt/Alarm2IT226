@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent location = new Intent(MainActivity.this, Location.class);
-                startActivity(location);
+                Intent locationAlarm = new Intent(MainActivity.this, LocationAlarm.class);
+                startActivity(locationAlarm);
             }
         });
 
